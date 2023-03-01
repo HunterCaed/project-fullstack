@@ -2,13 +2,18 @@
   text-align: center;
 }
 
+
+
+.body {
+  background-color: #333;
+  color: rgb(59, 57, 57);
+
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
-
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -27,15 +32,67 @@
 .container {
 
   padding: 30px;
-  background-color: floralwhite;
+  background-color: rgb(96, 90, 77);
   
+} 
+
+.todoBg {
+  background-color: #555;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 10px 140px 10px 15px;
+  text-align: left;
+  font-size: 22px;
+  position: relative;
+
+}
+.todoBg div {
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todoNumber {
+  color: #999;
+  border: 1px solid #999;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  text-align: center;
+  font-size: 14px;
+  margin-right: 8px;
+  align-items: center;
+  justify-content: center;
+
+
 }
+.todoBg .done .todoText {
+  text-decoration: line-through;
+  opacity: 0.3;
+  flex: 1;
+
+}
+
+.todoBg .iconsWrap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  width: auto;
+  display: inline-block;
+}
+
+.todoBg .iconsWrap span {
+  display: inline-block;
+  margin: 0px 10px 0 10px;
+  cursor: pointer;
+  color: #00ff89;
+}
+
+.todoBg .iconsWrap span:hover {
+  color: yellow;
+}
+
+
+
+
