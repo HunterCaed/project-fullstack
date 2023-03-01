@@ -51,7 +51,9 @@ app.route('/task/:id')
                 const { name, description, completed } = req.body
                 const { id } = req.params
                 await client.query('UPDATE todo SET name = $1, description = $2, completed = $3 WHERE id = $4', [name, description, completed, id])
-                res.json({ message: `Updated id: ${id} Todo name: ${name}`}).status(204)
+                // res.json({ message: `Updated id: ${id} Todo name: ${name}`}).status(204)
+                const data = await client.query('SELECT * FROM todo')
+                res.json({ validation: true, data: data.rows}).status(204)
         } catch (err) {
             res.status(500).json({err})
         }
@@ -60,7 +62,22 @@ app.route('/task/:id')
         try {
             const {id} = req.params
             await client.query('DELETE FROM todo WHERE id = $1', [id])
-            res.json({message: `Deleted ID: ${id}`}).status(204)
+            // res.json({message: `Deleted ID: ${id}`}).status(204)
+            const data = await client.query('SELECT * FROM todo')
+            res.json({ data: data.rows}).status(204)
+        } catch (err) {
+            res.status(500).json({err})
+        }
+    })
+    .patch(async (req, res) => {
+        try {
+            let {id} =req.params
+            let {body} = req
+            const data = await client.query(`UPDATE todo SET completed ='${body.completed}' WHERE id = ${id}`)
+            //res.status(204).send('Working')
+            const datas = await client.query('SELECT * FROM todo')
+            res.json({ validation: true, data: datas.rows}).status(201)
+
         } catch (err) {
             res.status(500).json({err})
         }

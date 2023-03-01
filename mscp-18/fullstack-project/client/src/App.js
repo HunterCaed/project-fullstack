@@ -96,8 +96,8 @@ function App() {
 
     <br /><br/>
     <h2>To Do List</h2>
-    <Input setNewToDo={setNewToDo} newToDo={newToDo} addToDo={addToDo} handleSubmitA={handleSubmitA}/>
-    <Todo data={data}setNewToDo={setNewToDo} newToDo={newToDo} />
+    <Input setNewToDo={setNewToDo} newToDo={newToDo} addToDo={addToDo} handleSubmitA={handleSubmitA} data={data} setData={setData}/>
+    <Todo data={data} setNewToDo={setNewToDo} newToDo={newToDo} setData={setData} />
     {data && data.length ? '' : 'No Todo in Database...'}
     <br /><br />
 

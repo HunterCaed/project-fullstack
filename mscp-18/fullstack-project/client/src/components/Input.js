@@ -1,20 +1,26 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 
-export default function Input({newToDo, setNewToDo, addToDo, handleSubmitA}) {
+export default function Input({newToDo, setNewToDo, addToDo, handleSubmitA, data, setData}) {
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const body = newToDo
         const todo = {name: body, description: "", completed: false}
 
-        fetch('http://localhost:3001/task', {
+        const result = await fetch('http://localhost:3001/task', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(todo)
         }).then(() => {
             console.log('New To Do Added')
+            
         })
+        const res = await fetch('http://localhost:3001/task')
+        const data = await res.json()
+        setData(data)
+       
+        console.log(data)
     }
   return (
     <div className="row">
