@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.todoBody {
+  width: 80vw;
+  border-bottom: 1px solid var(--black);
+  display: inline-block;
+  font-size: 1.4rem;
+  margin: 2rem; 
+  display: flex;
+  justify-content: center;
+
+}
+
+.todoBody:hover {
+  cursor: pointer;
+  color: rgb(12, 96, 214)
+}
